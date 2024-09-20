@@ -29,7 +29,20 @@ class Server {
     public void startReading() {
         // this thread will keep giving us data after reading
         Runnable r1 = ()->{
-         
+            System.out.println("reader started...");
+
+            while(true) {
+                try {
+                    String msg = br.readLine();
+                    if (msg.equals("exit")) {
+                        System.out.println("Client terminated the chat");
+                        break;
+                    }
+                    System.out.println("Client: " + msg);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         };
     }
 
