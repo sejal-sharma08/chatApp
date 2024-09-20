@@ -49,7 +49,16 @@ class Server {
     public void startWriting() {
         // this thread will take data from the user and then send it back to the client
         Runnable r2 = ()->{
-
+            while(true) {
+                try {BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
+                    String content = br1.readLine();
+                    out.println(content);
+                    out.flush();
+                    
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         };
     }
     public static void main(String[] args) {
