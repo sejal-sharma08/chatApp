@@ -54,7 +54,7 @@ class Server {
             System.out.println("Writer started...");
 
             try{
-                while(true) {
+                while(true && !socket.isClosed()) {
                     BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
                     String content = br1.readLine();
 
