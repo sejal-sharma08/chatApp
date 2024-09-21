@@ -93,6 +93,7 @@ public class Client extends JFrame {
         heading.setVerticalTextPosition(SwingConstants.BOTTOM);
         heading.setHorizontalAlignment(SwingConstants.CENTER);
         heading.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        messageArea.setEditable(false);
         messageInput.setHorizontalAlignment(SwingConstants.CENTER);
 
         // setting layout of frame
