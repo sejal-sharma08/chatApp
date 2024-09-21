@@ -42,16 +42,17 @@ public class Client extends JFrame {
 
     private void createGUI() {
         this.setTitle("Client Messager[END]");
-        this.setSize(600, 600);
+        this.setSize(600, 700);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);
 
         // coding for components
         heading.setFont(font);
         messageArea.setFont(font);
         messageInput.setFont(font);
         heading.setIcon(new ImageIcon("clogo.png"));
+        heading.setHorizontalTextPosition(SwingConstants.CENTER);
+        heading.setVerticalTextPosition(SwingConstants.BOTTOM);
         heading.setHorizontalAlignment(SwingConstants.CENTER);
         heading.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
@@ -62,6 +63,8 @@ public class Client extends JFrame {
         this.add(heading, BorderLayout.NORTH);
         this.add(messageArea, BorderLayout.CENTER);
         this.add(messageInput, BorderLayout.SOUTH);
+
+        this.setVisible(true);
     }
 
     public void startReading() {
