@@ -8,6 +8,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 
 
 import java.awt.BorderLayout;
@@ -99,7 +100,8 @@ public class Client extends JFrame {
 
         //adding the components to the frame
         this.add(heading, BorderLayout.NORTH);
-        this.add(messageArea, BorderLayout.CENTER);
+        JScrollPane jScrollPane = new JScrollPane(messageArea);
+        this.add(jScrollPane, BorderLayout.CENTER);
         this.add(messageInput, BorderLayout.SOUTH);
 
         this.setVisible(true);
