@@ -1,24 +1,34 @@
 import java.net.*;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import java.awt.Font;
 import java.io.*;
 
-public class Client {
-
+public class Client extends JFrame {
     Socket socket;
-
     BufferedReader br;
     PrintWriter out;
 
+    // Declare components
+    private JLabel heading = new JLabel("Client Area");
+    private JTextArea messageArea = new JTextArea();
+    private JTextField messageInput = new JTextField();
+    private Font font = new Font("Roboto", Font.PLAIN, 20);
+
     public Client() {
         try {
-            System.out.println("Sending request to server");
-            socket = new Socket("127.0.0.1", 7777);
-            System.out.println("Connection done");
+            // System.out.println("Sending request to server");
+            // socket = new Socket("127.0.0.1", 7777);
+            // System.out.println("Connection done");
+            // br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            // out = new PrintWriter(socket.getOutputStream());
 
-            br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            out = new PrintWriter(socket.getOutputStream());
-
-            startReading();
-            startWriting();
+            // startReading();
+            // startWriting();
 
         } catch (Exception e) {
             
