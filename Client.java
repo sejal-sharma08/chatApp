@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
+import java.awt.BorderLayout;
 import java.awt.Font;
 import java.io.*;
 
@@ -47,6 +47,14 @@ public class Client extends JFrame {
         heading.setFont(font);
         messageArea.setFont(font);
         messageInput.setFont(font);
+
+        // setting layout of frame
+        this.setLayout(new BorderLayout());
+
+        //adding the components to the frame
+        this.add(heading, BorderLayout.NORTH);
+        this.add(messageArea, BorderLayout.CENTER);
+        this.add(messageInput, BorderLayout.SOUTH);
     }
 
     public void startReading() {
