@@ -30,17 +30,17 @@ public class Client {
         Runnable r1 = ()->{
             System.out.println("reader started...");
 
-            while(true) {
-                try {
+            try{
+                while(true) {
                     String msg = br.readLine();
                     if (msg.equals("exit")) {
                         System.out.println("Server terminated the chat");
                         break;
                     }
                     System.out.println("Server: " + msg);
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         };
         new Thread(r1).start();
@@ -50,15 +50,16 @@ public class Client {
         // this thread will take data from the user and then send it back to the client
         Runnable r2 = ()->{
             System.out.println("Writer started...");
-            while(true) {
-                try {BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
+
+            try{
+                while(true) {
+                    BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
                     String content = br1.readLine();
                     out.println(content);
                     out.flush();
-                    
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         };
         new Thread(r2).start();
