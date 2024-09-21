@@ -42,6 +42,11 @@ public class Client extends JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+
+        // coding for components
+        heading.setFont(font);
+        messageArea.setFont(font);
+        messageInput.setFont(font);
     }
 
     public void startReading() {
