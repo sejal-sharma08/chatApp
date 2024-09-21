@@ -27,12 +27,21 @@ public class Client extends JFrame {
             // br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             // out = new PrintWriter(socket.getOutputStream());
 
+            createGUI();
             // startReading();
             // startWriting();
 
         } catch (Exception e) {
             
         }
+    }
+
+    private void createGUI() {
+        this.setTitle("Client Messager[END]");
+        this.setSize(600, 600);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
     }
 
     public void startReading() {
