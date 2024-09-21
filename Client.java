@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.JOptionPane;
+
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -27,18 +29,19 @@ public class Client extends JFrame {
 
     public Client() {
         try {
-            // System.out.println("Sending request to server");
-            // socket = new Socket("127.0.0.1", 7777);
-            // System.out.println("Connection done");
-            // br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            // out = new PrintWriter(socket.getOutputStream());
+            System.out.println("Sending request to server");
+            socket = new Socket("127.0.0.1", 7777);
+            System.out.println("Connection done");
+            br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            out = new PrintWriter(socket.getOutputStream());
 
             createGUI();
             handleEvents();
-            // startReading();
-            // startWriting();
+            startReading();
+           // startWriting();
 
         } catch (Exception e) {
+
             
         }
     }
@@ -61,7 +64,13 @@ public class Client extends JFrame {
             public void keyReleased(KeyEvent e) {
                 //System.out.println("key released" + e.getKeyCode());
                 if (e.getKeyCode() == 10) {
-                    System.out.println("You have pressed enter button");
+                    // System.out.println("You have pressed enter button");
+                    String contentToSend = messageInput.getText();
+                    messageArea.append("Me :" + contentToSend + "\n");
+                    out.println(contentToSend);
+                    out.flush();
+                    messageInput.setText("");
+                    messageInput.requestFocus(); 
                 }
                 
             }
@@ -106,10 +115,13 @@ public class Client extends JFrame {
                     String msg = br.readLine();
                     if (msg.equals("exit")) {
                         System.out.println("Server terminated the chat");
+                        JOptionPane.showMessageDialog(this, "Server terminated the chat");
+                        messageInput.setEnabled(false);
                         socket.close();
                         break;
                     }
-                    System.out.println("Server: " + msg);
+                   // System.out.println("Server: " + msg);
+                    messageArea.append("Server: " + msg + "\n");
                 }
             } catch (Exception e) {
                 //e.printStackTrace();
