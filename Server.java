@@ -44,6 +44,7 @@ class Server {
                 }
             }
         };
+        new Thread(r1).start();
     }
 
     public void startWriting() {
@@ -60,6 +61,7 @@ class Server {
                 }
             }
         };
+        new Thread(r2).start();
     }
     public static void main(String[] args) {
         System.out.println("this is server...going to start server");
