@@ -10,6 +10,8 @@ import javax.swing.SwingConstants;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.*;
 
 public class Client extends JFrame {
@@ -32,12 +34,38 @@ public class Client extends JFrame {
             // out = new PrintWriter(socket.getOutputStream());
 
             createGUI();
+            handleEvents();
             // startReading();
             // startWriting();
 
         } catch (Exception e) {
             
         }
+    }
+
+    private void handleEvents() {
+        messageInput.addKeyListener(new KeyListener(){
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                //System.out.println("key released" + e.getKeyCode());
+                if (e.getKeyCode() == 10) {
+                    System.out.println("You have pressed enter button");
+                }
+                
+            }
+        });
     }
 
     private void createGUI() {
@@ -55,6 +83,7 @@ public class Client extends JFrame {
         heading.setVerticalTextPosition(SwingConstants.BOTTOM);
         heading.setHorizontalAlignment(SwingConstants.CENTER);
         heading.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        messageInput.setHorizontalAlignment(SwingConstants.CENTER);
 
         // setting layout of frame
         this.setLayout(new BorderLayout());
