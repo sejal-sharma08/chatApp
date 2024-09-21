@@ -1,9 +1,13 @@
 import java.net.*;
 
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.io.*;
@@ -47,6 +51,9 @@ public class Client extends JFrame {
         heading.setFont(font);
         messageArea.setFont(font);
         messageInput.setFont(font);
+        heading.setIcon(new ImageIcon("clogo.png"));
+        heading.setHorizontalAlignment(SwingConstants.CENTER);
+        heading.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         // setting layout of frame
         this.setLayout(new BorderLayout());
